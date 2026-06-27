@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  /* === Color tokens: workshop/industrial palette ===
+     Base: deep workshop charcoal/navy
+     Accent: safety-amber (hazard energy, used sparingly)
+     Secondary: muted teal (success/progress)
+     Danger: signal red (errors, locked content)
+  */
+  --color-shop-950: #0B0F14;
+  --color-shop-900: #11161D;
+  --color-shop-800: #1A222C;
+  --color-shop-700: #252F3B;
+  --color-shop-600: #374252;
+  --color-shop-500: #586475;
+  --color-shop-300: #9AA6B5;
+  --color-shop-100: #E4E8ED;
+  --color-shop-50: #F6F8FA;
+
+  --color-amber-signal: #F2A93B;
+  --color-amber-deep: #C97F1B;
+  --color-teal-gauge: #2E9C8F;
+  --color-teal-deep: #1F6F66;
+  --color-red-flag: #D14B3D;
+
+  --font-display: "Archivo Expanded", "Archivo", sans-serif;
+  --font-body: "Archivo", "Helvetica Neue", sans-serif;
+  --font-mono: "JetBrains Mono", "Menlo", monospace;
+
+  --shadow-rivet: inset 0 1px 0 rgba(255,255,255,0.06), 0 1px 2px rgba(0,0,0,0.4);
+}
+
+@layer base {
+  html {
+    font-family: var(--font-body);
+  }
+  body {
+    background-color: var(--color-shop-950);
+    color: var(--color-shop-100);
+  }
+}
+
+@layer components {
+  /* Riveted panel card - the structural building block used across dashboards */
+  .panel {
+    background-color: var(--color-shop-900);
+    border: 1px solid var(--color-shop-700);
+    box-shadow: var(--shadow-rivet);
+  }
+
+  /* Certification-stamp style badge for CBET levels */
+  .stamp-badge {
+    font-family: var(--font-mono);
+    letter-spacing: 0.05em;
+  }
+
+  /* Spec-sheet style label */
+  .spec-label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-shop-500);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
